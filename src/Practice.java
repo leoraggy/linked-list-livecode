@@ -1,18 +1,23 @@
 public class Practice {
     public static void main(String[] args) {
-        System.out.println("~linked lists practice~");
-        Node head = new Node('g', null);
-        Node ryan = new Node('s', null);
-        head.next = ryan;
-        ryan.next = new Node('t', null);
-        ryan.next.next = new Node('x', null);
+        // Node head = new Node('g', null);
+        // Node ryan = new Node('s', null);
+        // head.next = ryan;
+        // ryan.next = new Node('t', null);
+        // ryan.next.next = new Node('x', null);
 
-        printList(head);
+        // printList(head);
 
-        System.out.println(contains(head, 'x'));
-        System.out.println(contains(head, 'f'));
+        // System.out.println(contains(head, 'x'));
+        // System.out.println(contains(head, 'f'));
 
-        System.out.println(remove(head, 'z'));
+        // System.out.println(remove(head, 'z'));
+        MyLL<Character> list = new MyLL<>();
+        list.addToBack('x');
+        list.addToBack('m');
+        list.addToBack('v');
+        list.addToBack('q');
+        list.printList();
     }
 
     public static void printList(Node start){

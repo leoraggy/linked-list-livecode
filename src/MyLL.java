@@ -1,9 +1,9 @@
-public class MyLL {
+public class MyLL<T> {
     private class Node {
         public Node next;
-        public char value;
+        public T value;
 
-        public Node(char value, Node next){
+        public Node(T value, Node next){
             this.value = value;
             this.next = next;
 
@@ -24,10 +24,24 @@ public class MyLL {
         }
     }
 
-    public boolean contains(char toFind){
+    public void addToBack(T toAdd){
+        Node newNode = new Node(toAdd, null);
+        if(head == null){
+            head = newNode;
+            return;
+        }
+        Node current = head;
+        while(current.next != null){
+            current = current.next;
+        }
+        current.next = newNode;
+    }
+
+
+    public boolean contains(T toFind){
         Node current = head;
         while (current != null){
-            if (current.value == toFind){
+            if (current.value.equals(toFind)){
                 return true;
             }
             current = current.next;
@@ -36,8 +50,8 @@ public class MyLL {
     }
 
 
-    public char remove(char toRemove){
-        if (head == null) return '\0';
+    public T remove(T toRemove){
+        if (head == null) return null;
 
         if (head.value == toRemove) head = head.next;
 
@@ -51,6 +65,6 @@ public class MyLL {
             current = current.next;
         }
 
-        return '\0';
+        return null;
     }
 }
