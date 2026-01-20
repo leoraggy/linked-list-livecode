@@ -2,18 +2,21 @@ public class MyLL<T> {
     private class Node {
         public Node next;
         public T value;
+        public Node prev;
 
-        public Node(T value, Node next){
+        public Node(T value, Node prev, Node next){
             this.value = value;
             this.next = next;
-
+            this.prev = prev;
         }
     }
 
     private Node head;
+    private Node tail;
 
     public MyLL(){
         head = null;
+        tail = null;
     }
 
     public void printList(){
@@ -24,8 +27,16 @@ public class MyLL<T> {
         }
     }
 
+    public void printListBackwards(){
+        Node current = tail;
+        while(current != null){
+            System.out.println(current.value);
+            current = current.prev;
+        }
+    }
+
     public void addToBack(T toAdd){
-        Node newNode = new Node(toAdd, null);
+        Node newNode = new Node(toAdd, null, null);
         if(head == null){
             head = newNode;
             return;
@@ -34,7 +45,9 @@ public class MyLL<T> {
         while(current.next != null){
             current = current.next;
         }
+        newNode.prev = current;
         current.next = newNode;
+        this.tail = newNode;
     }
 
 
@@ -60,6 +73,7 @@ public class MyLL<T> {
         while (current.next != null){
             if (current.next.value == toRemove){
                 current.next = current.next.next;
+                current.next.prev = current;
                 return toRemove;
             }
             current = current.next;

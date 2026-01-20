@@ -17,7 +17,22 @@ public class Practice {
         list.addToBack('m');
         list.addToBack('v');
         list.addToBack('q');
+        
         list.printList();
+        System.out.println("Backwards now");
+        list.printListBackwards();
+
+
+        
+        // MyLL<Integer> intList = new MyLL<>();
+        // intList.addToBack(5);
+        // intList.addToBack(99);
+        // intList.addToBack(2);
+        // intList.addToBack(-333333);
+        // intList.addToBack(66);
+
+        // intList.printList();
+
     }
 
     public static void printList(Node start){
